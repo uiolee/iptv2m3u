@@ -1,6 +1,6 @@
 {
   "name": "iptv2m3u",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "convert getAllChannel.json to m3u format.",
   "keywords": [
     "iptv",
