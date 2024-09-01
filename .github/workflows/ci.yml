@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "src/**.tsx?"
+      - "package.json"
+      - "tsconfig.json"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "src/**.tsx?"
+      - "scripts/**"
+      - "package.json"
+      - "tsconfig.json"
+      - ".github/workflows/ci.yml"
+
+env:
+  default_node_version: "lts/*"
+  default_pnpm_version: "latest"
+  artifact_name: build_${{ github.sha }}
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: ${{env.default_pnpm_version}}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: ESLint
+        run: |
+          pnpm run lint
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: ${{env.default_pnpm_version}}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Type Check
+        run: |
+          pnpm run type-check
+
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+
+  test:
+    name: test
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        # pm: [pnpm, npm, yarn]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: ${{env.default_pnpm_version}}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: test
+        run: |
+          pnpm run test
