@@ -1,0 +1,47 @@
+{
+  "name": "iptv2m3u",
+  "version": "0.0.0",
+  "description": "convert getAllChannel.json to m3u format.",
+  "keywords": [
+    "iptv",
+    "cmcc",
+    "m3u",
+    "m3u8"
+  ],
+  "license": "MPL-2.0",
+  "author": "uiolee (https://github.com/uiolee)",
+  "type": "module",
+  "main": "dist/main.js",
+  "module": "dist/main.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run tsbf",
+    "build:bundle": "ncc build src/main.ts -o bundle -m -C -a --no-source-map-register --license license --debug",
+    "clean": "rm output/*",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "node --loader ts-node/esm -r ts-node/register --enable-source-maps test/test.ts",
+    "tsb": "tsc -b -v",
+    "tsbf": "tsc -b -v -f",
+    "tsbw": "tsc -b -v -w",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "iptv2m3u": "link:",
+    "m3u-parser-generator": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "@vercel/ncc": "^0.38.1",
+    "eslint": "^9.9.1",
+    "eslint-config-uiolee": "^0.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

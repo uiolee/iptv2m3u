@@ -1,0 +1,50 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "name": "tsn",
+      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      //   "outFiles": ["${workspaceFolder}/lib/*.js"]
+      "runtimeArgs": [
+        "--loader",
+        "ts-node/esm",
+        "-r",
+        "ts-node/register",
+        "--enable-source-maps"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "internalConsoleOptions": "openOnSessionStart",
+      "name": "esn",
+      "cwd": "${workspaceFolder}",
+      "program": "${file}",
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      //   "outFiles": ["${workspaceFolder}/lib/*.js"],
+      "runtimeArgs": [
+        "--loader",
+        "esbuild-register/loader",
+        "-r",
+        "esbuild-register",
+        "--enable-source-maps"
+      ],
+      "outputCapture": "std"
+    }
+  ]
+}
