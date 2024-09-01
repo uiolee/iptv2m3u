@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      iptv2m3u:
-        specifier: 'link:'
-        version: 'link:'
       m3u-parser-generator:
         specifier: ^2.0.0
         version: 2.0.0
@@ -27,6 +24,9 @@ importers:
       eslint-config-uiolee:
         specifier: ^0.1.0
         version: 0.1.0(@eslint/eslintrc@3.1.0)(@eslint/js@9.9.1)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@9.9.1)(typescript@5.5.4))(eslint@9.9.1)(typescript@5.5.4))(@typescript-eslint/parser@7.18.0(eslint@9.9.1)(typescript@5.5.4))(eslint-config-prettier@9.1.0(eslint@9.9.1))(eslint-plugin-jest@28.8.1(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@9.9.1)(typescript@5.5.4))(eslint@9.9.1)(typescript@5.5.4))(eslint@9.9.1)(typescript@5.5.4))(eslint-plugin-n@17.10.2(eslint@9.9.1))(eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.9.1))(eslint@9.9.1)(prettier@3.3.3))(eslint@9.9.1)
+      iptv2m3u:
+        specifier: 'link:'
+        version: 'link:'
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@22.5.1)(typescript@5.5.4)

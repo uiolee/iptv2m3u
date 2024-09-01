@@ -9,7 +9,7 @@ convert getAllChannel.json to m3u format.
 [![CI](https://github.com/uiolee/iptv2m3u/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/uiolee/iptv2m3u/actions/workflows/ci.yml)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/uiolee/iptv2m3u?logo=librariesdotio)](https://libraries.io/github/uiolee/iptv2m3u#dependencies)
 
-## Npmjs
+## npmjs
 
 [![NPM Version](https://img.shields.io/npm/v/iptv2m3u?logo=npm)](https://www.npmjs.com/package/iptv2m3u)
 [![NPM License](https://img.shields.io/npm/l/iptv2m3u)](./LICENSE)
@@ -17,7 +17,7 @@ convert getAllChannel.json to m3u format.
 [![NPM Downloads](https://img.shields.io/npm/dt/iptv2m3u?logo=npm)](#iptv2m3u)
 [![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iptv2m3u?logo=librariesdotio)](https://libraries.io/npm/iptv2m3u/tree)
 
-## Run in Node.JS
+## an examlple run in Node.JS
 
 ```bash
 npm i iptv2m3u
@@ -50,3 +50,7 @@ readFile("./test/getAllChannel.json", { encoding: "utf-8" }).then((str) => {
     });
 });
 ```
+
+## run in browser
+
+Maybe it will works in the browser too, but I haven't tested it yet.
