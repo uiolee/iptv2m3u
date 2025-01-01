@@ -37,7 +37,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "m3u-parser-generator": "^2.0.0"
+    "m3u-parser-generator": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.5.1",
